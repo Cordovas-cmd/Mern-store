@@ -2,7 +2,7 @@
 // const express = require("express");
 
 import express from "express";
-
+import { initializeDbConnection } from "./db";
 const PORT = process.env.PORT || 8080
 
 
@@ -15,7 +15,10 @@ app.get("/ping", (req,res) => {
     res.send("PONG back at you...😎 ")
 })
 
-app.listen(PORT,()=> console.log(`Server is listening on port ${PORT}...`))
+// initialize connection to the database using the initializeDbConnection function, ONLY once that's done *then* launch app on port
+initializeDbConnection().then(() => {
+    app.listen(PORT,()=> console.log(`Server is listening on port ${PORT}...`))
+})
 
 
 console.log("Server is started...");
