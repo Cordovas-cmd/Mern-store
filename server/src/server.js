@@ -3,11 +3,14 @@
 
 import express from "express";
 import { initializeDbConnection } from "./db";
+import {routes} from "./routes"
 const PORT = process.env.PORT || 8080
 
 
 const app = express();
 app.use(express.json());
+// spread them
+routes.map((route) => app[route.method](route.path, route.handler))
 
 // dummy route to test of server is working with a visual message in browser.
 app.get("/ping", (req,res) => {
