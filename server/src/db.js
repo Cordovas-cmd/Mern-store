@@ -4,12 +4,14 @@ let client;
 
 dotenv.config()
 
-const PW= process.env.DB_PW;
-const UN= process.env.DB_USER;
-const dbURI = `mongodb+srv://${UN}:${PW}@cluster0.wj456.mongodb.net/`
+// const PW= process.env.DB_PW;
+// const UN= process.env.DB_USER;
+const dbURI = process.env.MONGODB_URI || ""; 
+
 // const dbURI = "mongodb+srv://<username>:<password>@cluster0.wj456.mongodb.net/?restryWrites=true&"
 
 export const initializeDbConnection = async () => {
+    if(!dbURI) console.log("Unable to access dbURI..");
     client = await MongoClient.connect(dbURI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
