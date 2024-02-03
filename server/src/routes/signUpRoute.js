@@ -1,7 +1,7 @@
 import { getDbConnection } from "../db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import * as dotenv from "dotenv"
+// import * as dotenv from "dotenv"
 
 // describe the route to our server using properties (for now)
 export const signUpRoute ={
@@ -39,18 +39,19 @@ export const signUpRoute ={
         // mongo provides insertedId when successful
         const { insertedId } = result;
 
-        dotenv.config()
+        // dotenv.config()
+
+        // create token/ specify secret
         jwt.sign({uid:insertedId, email}, process.env.JWT_SECRET, {expiresIn: "2d"},
         (error, token) => {
             if(error){
+                // log error
                 console.log("Error generating jwt token: \n", error);
+                // notify user
                 return res.status(500).send(error)
             }
             return res.status(200).json( { token })
         })
-        // console.log(`InsertedId is ${insertedId}`);
-
-        // return res.sendStatus(200);
     }
 
 }
