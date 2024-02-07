@@ -7,7 +7,7 @@ export const signInRoute = {
     method: "post",
     handler: async(req, res) => {
         // Debug Log
-        console.log("Recieved ping on /api/sign-in");
+        // console.log("Recieved ping on /api/sign-in");
 
         const { email, password } = req.body;
         const db = getDbConnection("ecommerce");
