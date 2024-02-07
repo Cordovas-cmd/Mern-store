@@ -4,7 +4,7 @@
 import express from "express";
 import { initializeDbConnection } from "./db";
 import {routes} from "./routes"
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3001
 
 
 const app = express();
