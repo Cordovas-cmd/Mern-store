@@ -10,12 +10,16 @@ export const signUpRoute ={
     handler: async (req,res) => {
 
         // Debug log 
-        console.log("Recieved a POST request on /api/signup");
+        // console.log("Recieved a POST request on /api/signup");
 
 
-        const {email, password} = req.body
-        if(!email || !password) return res.sendStatus(500);
+        const {email, firstName, lastName, location, password} = req.body
+        if(!email || !password || !firstName || !lastName || !location) return res.sendStatus(500);
 
+
+        const user = await db.collection("users").findOne({email})
+        // if user account already exists
+        if(user) return res.sendStatus(400)
 
         // define salt rounds (bcrypt algo that scales depending on system)
         const saltRounds = 10;
