@@ -1,4 +1,5 @@
 import { signUpRoute } from "./signUpRoute";
+import { signInRoute } from "./signInRoute"
 import { testAuthRoute } from "./testAuthRoute";
 
-export const routes = [signUpRoute, testAuthRoute]
+export const routes = [signUpRoute, signInRoute, testAuthRoute]
