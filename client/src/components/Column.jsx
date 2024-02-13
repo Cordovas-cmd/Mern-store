@@ -4,7 +4,7 @@ return (
     <div
     // apply regular react styling
         style={{
-            display: flex,
+            display: "flex",
             flexDirection: "column",
             gap: "8px",
             justifyContent:"flex-start",
