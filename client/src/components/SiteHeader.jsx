@@ -1,6 +1,7 @@
 import {Column} from "./Column"
-import { Login } from "./Login"
+import { LogIn } from "./LogIn"
 import {Row} from "./Row"
+import { SignUp } from "./SignUp"
 
 export const SiteHeader = ()=> {
     
@@ -11,8 +12,8 @@ export const SiteHeader = ()=> {
         <h1>Ecommerce App</h1>
         <Row>
             <button>🛒</button>
-            <button>Sign Up</button>
-            <Login />
+            <SignUp />
+            <LogIn />
         </Row>
         </Row>
         </Column>
