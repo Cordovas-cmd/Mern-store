@@ -1,4 +1,5 @@
 import {Column} from "./Column"
+import { Login } from "./Login"
 import {Row} from "./Row"
 
 export const SiteHeader = ()=> {
@@ -11,7 +12,7 @@ export const SiteHeader = ()=> {
         <Row>
             <button>🛒</button>
             <button>Sign Up</button>
-            <button>Log In</button>
+            <Login />
         </Row>
         </Row>
         </Column>
