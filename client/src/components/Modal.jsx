@@ -1,6 +1,7 @@
 import {Column} from "./Column"
 import {Row} from "./Row"
 
+// takes two props
 export const Modal = ({ children, setVisibility}) => {
     return (
         <div>
@@ -28,7 +29,7 @@ export const Modal = ({ children, setVisibility}) => {
             left: "50%",
             minWidth: "60vw",
             maxHeight: "90vh",
-            transform: "(-50%, -50%)",
+            transform: "translate(-50%, -50%)",
             backgroundColor: "black",
             border: "2px solid white",
             borderRadius: "8px",
