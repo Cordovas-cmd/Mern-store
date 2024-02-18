@@ -1,8 +1,9 @@
 
 import './App.css'
-import {Column} from "./components/Column"
-import {SiteHeader} from "./components/SiteHeader"
-
+import {Column} from "./components/Column";
+import {SiteHeader} from "./components/SiteHeader";
+import {sampleProductsList} from "./assets/sampleProducts";
+import { ProductCard } from './components/ProductCard';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <>
      <Column>
      <SiteHeader />
+     {sampleProductsList.map((p=> <ProductCard key={p.id  + p.title}product={p}/> ))}
      </Column>
     </>
   )

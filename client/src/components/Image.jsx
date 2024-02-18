@@ -1,4 +1,4 @@
-import Placeholder from "../assets/industrialninja.gif";
+// import Placeholder from "../assets/industrialninja.gif";
 
 export const Image = ({src=Placeholder, title, alt, style})  => {
     
