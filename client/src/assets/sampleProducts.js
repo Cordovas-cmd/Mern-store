@@ -39,6 +39,14 @@ export const sampleProductsList = [
   },
   {
     id: "5",
+    title: "Ninja",
+    alt: "Ninja",
+    imageSource: Ninja,
+    price: 2,
+    availability: true,
+  },
+  {
+    id: "6",
     title: "MountainSide",
     alt: "MountainSide",
     imageSource: MountainSide,
