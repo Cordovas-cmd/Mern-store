@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import {Column} from "./Column";
 import {Image} from "./Image";
 import {Row} from "./Row";
+// import { useContext } from "react";
+import { CartContext } from "../context/CartProvider";
 
 
 
 export const ProductCard = ({ product }) => {
 
+
+    const [cartItems, setCartItems] = useContext(CartContext)
     // destructure the object
     const { id, title, alt, imageSource, price, availability,} = product;
 
@@ -26,7 +31,10 @@ export const ProductCard = ({ product }) => {
             <h4>${price}</h4>
             {!availability && (<p style={{ color:"red", fontStyle:"italic" }}>Out of Stock</p>)}
         </Row>
-        <button disabled={!availability}>Add to Cart 🛒</button>
+        <button 
+        // update with previous items and new product.
+        onClick={()=> setCartItems((pre) => [...pre, product])}
+        disabled={!availability}>Add to Cart 🛒</button>
         </Column>
     )
 }
