@@ -5,6 +5,7 @@ import {SiteHeader} from "./components/SiteHeader";
 import {sampleProductsList} from "./assets/sampleProducts";
 import { ProductCard } from './components/ProductCard';
 import { Row } from "./components/Row"
+import { CartItemsList } from './components/CartItemsList';
 function App() {
 
 
@@ -13,6 +14,7 @@ function App() {
      <Column>
      <SiteHeader />
      <Row style={{flexWrap: "wrap"}}>{sampleProductsList.map((p=> <ProductCard key={p.id  + p.title}product={p}/> ))}</Row>
+     <CartItemsList />
      </Column>
     </>
   )
