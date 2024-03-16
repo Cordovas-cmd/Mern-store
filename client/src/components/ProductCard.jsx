@@ -4,7 +4,7 @@ import {Image} from "./Image";
 import {Row} from "./Row";
 // import { useContext } from "react";
 import { CartContext } from "../context/CartProvider";
-
+import { updateItemInCart } from "../utils/cartManagement"
 
 
 export const ProductCard = ({ product }) => {
@@ -32,8 +32,8 @@ export const ProductCard = ({ product }) => {
             {!availability && (<p style={{ color:"red", fontStyle:"italic" }}>Out of Stock</p>)}
         </Row>
         <button 
-        // update with previous items and new product.
-        onClick={()=> setCartItems((pre) => [...pre, product])}
+        // update with previous items and new product. pass setCartItems the previous state (pre)
+        onClick={()=> setCartItems((pre) => updateItemInCart("add", product, pre))}
         disabled={!availability}>Add to Cart 🛒</button>
         </Column>
     )

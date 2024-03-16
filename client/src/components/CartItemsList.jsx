@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartProvider";
 import { CartItem } from "./CartItem";
+import { getCartTotal, getNumberOfItemsInCart } from "../utils/cartManagement";
 
 export const CartItemsList = () => {
     const [cartItems] = useContext(CartContext);
-    const numberOfItems = cartItems.length || 0;
-
+    const numberOfItems = getNumberOfItemsInCart(cartItems);
+    const cartTotal = getCartTotal(cartItems)
     return (
         <div>
             <div
@@ -20,7 +21,7 @@ export const CartItemsList = () => {
             </div>
 
             <p>Number of Items in cart: {numberOfItems}</p>
-            <p>Your total is: $ ???</p>
+            <p>Your Total is: ${cartTotal}</p>
         </div>
     )
 }
