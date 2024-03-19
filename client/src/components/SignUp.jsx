@@ -4,7 +4,7 @@ import { InputField } from "./InputField";
 
 
 export const SignUp = ()=> {
-    const [isVisible, setVisibility]  = useState("false");
+    const [isVisible, setVisibility]  = useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [location, setLocation] = useState("");

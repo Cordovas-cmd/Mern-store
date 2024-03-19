@@ -14,7 +14,7 @@ function App() {
      <Column>
      <SiteHeader />
      <Row style={{flexWrap: "wrap"}}>{sampleProductsList.map((p=> <ProductCard key={p.id  + p.title}product={p}/> ))}</Row>
-     <CartItemsList />
+     
      </Column>
     </>
   )

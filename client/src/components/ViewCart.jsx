@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { Modal } from "./Modal"
+import  { CartContext} from "../context/CartProvider";
 import { getNumberOfItemsInCart } from "../utils/cartManagement";
 import { CartItemsList } from "./CartItemsList";
+import { Modal } from "./Modal";
 
 export const ViewCart = () => {
     const [cartItems] = useContext(CartContext)
@@ -14,9 +15,10 @@ export const ViewCart = () => {
     return (
         <>
         {/* toggle visibility */}
-        <button>🛒{numberOfItemsInCart > 0 && ({ numberOfItemsInCart })}</button>
-        {isVisible && (<Modal setVisibility={setVisibility}>
-            <CartItemsList />
+        <button onClick={() => setVisibility(true)}>🛒{ numberOfItemsInCart > 0 ? `(${numberOfItemsInCart}) ` : ""}</button>
+        {isVisible && (
+            <Modal setVisibility={setVisibility}>
+                <CartItemsList />
             </Modal>
             )}
         </>
