@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { CartContext } from "../context/CartProvider"
 
 // get props from cart items list
-export const CartItem = ({index,item}) => {
+export const CartItem = ({index, item}) => {
 
     const [cartItems, setCartItems] = useContext(CartContext);
     return(    <>
@@ -17,7 +17,7 @@ export const CartItem = ({index,item}) => {
                 >
                     ➖
                 </button>
-            <p style={{textAlign:"center"}}>${item.count}</p>
+            <p style={{textAlign:"center"}}>{item.count}</p>
             <button onClick={()=> 
                 setCartItems((pre)=> updateItemInCart("add", item, pre))}
                 >
