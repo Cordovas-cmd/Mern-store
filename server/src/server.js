@@ -6,10 +6,12 @@ import { initializeDbConnection } from "./db";
 import {routes} from "./routes"
 import { authMiddleware } from "./utils/authMiddleware";
 import { protectedRoutes } from "./protectedRoutes";
+import cors from "cors"
 const PORT = process.env.PORT || 3001
 
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 

@@ -10,16 +10,16 @@ export const signUpRoute ={
     handler: async (req,res) => {
 
         // Debug log 
-        // console.log("Recieved a POST request on /api/signup");
+        console.log("Recieved a POST request on /api/signup");
 
 
         const {email, firstName, lastName, location, password} = req.body
         if(!email || !password || !firstName || !lastName || !location) return res.sendStatus(500);
 
 
-        const user = await db.collection("users").findOne({email})
-        // if user account already exists
-        if(user) return res.sendStatus(400)
+        // const user = await db.collection("users").findOne({email})
+        // // if user account already exists
+        // if(user) return res.sendStatus(400)
 
         // define salt rounds (bcrypt algo that scales depending on system)
         const saltRounds = 10;
@@ -29,20 +29,21 @@ export const signUpRoute ={
         
         // Debug log 
         // get visual on our password before and after.
-        console.log(`Password:${password}\nSalt: ${salt}\nHash:${passwordHash}`);
-        console.log(`Email: ${email}, password: ${password}`)
+        // console.log(`Password:${password}\nSalt: ${salt}\nHash:${passwordHash}`);
+        // console.log(`Email: ${email}, password: ${password}`)
 
-        const db = getDbConnection('ecommerce')
-        // fyi: collections are just like folders in a nosql database or tables in sql
-        const result = await db.collection("users").insertOne({
-            email,
-            passwordHash
-        })
-        if(!result) return res.sendStatus(500);
+        // const db = getDbConnection('ecommerce')
+        // // fyi: collections are just like folders in a nosql database or tables in sql
+        // const result = await db.collection("users").insertOne({
+        //     email,
+        //     passwordHash
+        // })
+        // if(!result) return res.sendStatus(500);
 
-        // mongo provides insertedId when successful
-        const { insertedId } = result;
+        // // mongo provides insertedId when successful
+        // const { insertedId } = result;
 
+        const insertedId = "test";
         // dotenv.config()
 
         // create token/ specify secret
