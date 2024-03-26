@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Modal } from "./Modal"
 import { InputField } from "./InputField";
 import axios from "axios"
+import { CurrentUserContext } from "../context/CurrentUserProvider";
 
 /*
 validation:
@@ -12,13 +13,16 @@ validation:
 */ 
 
 export const SignUp = ()=> {
+
+// make sure to import context in main.jsx
+    const [user, token, setToken] = useContext(CurrentUserContext);
     const [isVisible, setVisibility]  = useState(false);
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [location, setLocation] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    const [firstName, setFirstName] = useState("soso");
+    const [lastName, setLastName] = useState("soso");
+    const [location, setLocation] = useState("soso");
+    const [email, setEmail] = useState("test@test.com");
+    const [password, setPassword] = useState("soso");
+    const [confirmPassword, setConfirmPassword] = useState("soso");
 
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
