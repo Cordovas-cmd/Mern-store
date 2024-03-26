@@ -68,8 +68,12 @@ export const SignUp = ()=> {
                     setToken(token)
                     setVisibility(false)
                 } catch(e){
-                    setErrorMessage("Error Creating User");
-                    console.log(e);
+                    if(e.response.status === 409) {
+                        setErrorMessage("Email already in use.")
+                    } else {
+                        setErrorMessage("Error Creating User");
+                        console.log(e);
+                    }
                 }
             }}>Sign Up</button>
         </Modal>
