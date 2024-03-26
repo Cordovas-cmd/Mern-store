@@ -64,8 +64,9 @@ export const SignUp = ()=> {
                     const response = await axios.post("http://localhost:3001/api/signup", {firstName,lastName,email,password,location} )
 
                     const {data:{token}} = response
-                    console.log(token);               
-                
+                    // console.log(token);               
+                    setToken(token)
+                    setVisibility(false)
                 } catch(e){
                     setErrorMessage("Error Creating User");
                     console.log(e);

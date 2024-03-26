@@ -47,7 +47,7 @@ export const signUpRoute ={
         // dotenv.config()
 
         // create token/ specify secret send back to user.
-        jwt.sign({uid:insertedId, email}, process.env.JWT_SECRET, {expiresIn: "2d"},
+        jwt.sign({uid:insertedId, email, firstName, lastName, location}, process.env.JWT_SECRET, {expiresIn: "2d"},
         (error, token) => {
             if(error){
                 // log error
