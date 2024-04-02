@@ -18,13 +18,13 @@ export const signInRoute = {
         if(!user) return res.status(400).json({message: "unable to sign in.."})
 
         // grab password hash from user object
-        const { passwordHash, uid} = user
+        const { passwordHash, _id: uid, firstName, lastName, location} = user
         // use b crypt to to compare the two  returns true or false(dont need to provide salt because bcrypt knows how to conclude the salt from the hash)
         const isCorrect = await bcrypt.compare(password, passwordHash)
 
         if(!isCorrect) 
         return res.status(400).json({message: "Unable to sign In..."})
-        jwt.sign({uid, email}, process.env.JWT_SECRET, {expiresIn:"2d"}, (error, token) => {
+        jwt.sign({uid, email, firstName, lastName, location}, process.env.JWT_SECRET, {expiresIn:"2d"}, (error, token) => {
             if(error) return res.sendStatus(500)
 
             return res.status(200).json({token});
