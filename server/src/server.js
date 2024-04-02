@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3001
 
 
 const app = express();
+// install and use cors to prevent cors errors
 app.use(cors());
 app.use(express.json());
 

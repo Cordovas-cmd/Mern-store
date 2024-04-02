@@ -44,6 +44,7 @@ export const SignUp = ()=> {
             <InputField label="Confirm Password:" value={confirmPassword} setValue={setConfirmPassword}  type="password" />
             <InputField label="Location:" value={location} setValue={setLocation} />
 
+            {/* if error message */}
             {errorMessage && <div 
             style={{border:"2px solid red"}}>
                 <p style={{color:"red"}}>{errorMessage}</p>
