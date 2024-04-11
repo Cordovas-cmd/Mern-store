@@ -3,8 +3,9 @@ import { CartContext } from "../context/CartProvider";
 import { CartItem } from "./CartItem";
 import { getCartTotal, getNumberOfItemsInCart } from "../utils/cartManagement";
 
-export const CartItemsList = () => {
-    const [cartItems] = useContext(CartContext);
+export const CartItemsList = ({ inMemory = true, cartItemsProp = [] }) => {
+    // if we're using in memory use useContext. otherwise use prop.
+    const cartItems = inMemory ? useContext(CartContext)[0] : cartItemsProp;
     const numberOfItems = getNumberOfItemsInCart(cartItems);
     const cartTotal = getCartTotal(cartItems)
     return (
@@ -17,7 +18,7 @@ export const CartItemsList = () => {
                 justifyContent: "space-between",
                 alignItems:"center",
             }}>
-                {cartItems.map((item, index) => <CartItem key={item.id + item.title} index={index} item={item}/>)}
+                {cartItems.map((item, index) => <CartItem key={item.id + item.title} index={index} item={item} inMemory={inMemory}/>)}
             </div>
 
             <p>Number of Items in cart: {numberOfItems}</p>

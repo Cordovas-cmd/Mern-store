@@ -9,6 +9,7 @@ import { Row } from "./components/Row"
 import { CartItemsList } from './components/CartItemsList';
 import { Main } from "./pages/Main"
 import { CheckOut } from './pages/Checkout';
+import { ViewOrders } from "./pages/ViewOrders";
 function App() {
 
 
@@ -19,6 +20,7 @@ function App() {
        <SiteHeader />
        <Routes>
         <Route path="/" element={<Main />}/>
+        <Route path="/orders" element={<ViewOrders />} />
         <Route path="/check-out" element={<CheckOut />}/>
        </Routes>
        </Column>
