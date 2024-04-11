@@ -7,6 +7,7 @@ import {routes} from "./routes"
 import { authMiddleware } from "./utils/authMiddleware";
 import { protectedRoutes } from "./protectedRoutes";
 import cors from "cors"
+import { upload } from "./multerConfig"
 const PORT = process.env.PORT || 3001
 
 
@@ -19,6 +20,14 @@ app.use(express.json());
 // dummy route to test of server is working with a visual message in browser.
 app.get("/ping", (req,res) => {
     res.send("PONG back at you...😎 ");;
+})
+
+
+// should grab the name from productImage AddProduct.jsx
+app.use("/api/product", upload.single("productImage"), (req, res) => {
+    const {title, price} = req.body
+    console.log(title, price)
+    res.sendStatus(200);
 })
 
 

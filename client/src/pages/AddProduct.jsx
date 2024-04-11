@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import {Column} from "../components/Column";
 import {InputField} from "../components/InputField" ;
-import { InputField } from "../components/InputField";
 import { CurrentUserContext } from "../context/CurrentUserProvider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +17,7 @@ export const AddProduct = () => {
     const [price, setPrice] = useState(0);
     const [img,setImg] =useState(null);
 
-    const [msg, setMsg] = useState("")
+    const [message, setMessage] = useState("")
     return (
         <Column>
 
@@ -49,7 +48,20 @@ export const AddProduct = () => {
             const formData = new FormData();
             formData.append("title", title)
             formData.append("price", price)
-            formData.append("productImage", img)
+            formData.append("productImage", img);
+
+            try {
+                await axios.post("http://localhost:8080/api/product", formData, {
+                    headers: {
+                        authorization: `Bearer ${token}`,
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+                setMessage("Successfully uploaded file.");
+            } catch (e) {
+                setMessage("Error uploading file.");
+                console.log(e);
+            }
         }}>Upload Product</button>
         
         </Column>

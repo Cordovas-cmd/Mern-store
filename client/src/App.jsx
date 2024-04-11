@@ -10,6 +10,8 @@ import { CartItemsList } from './components/CartItemsList';
 import { Main } from "./pages/Main"
 import { CheckOut } from './pages/Checkout';
 import { ViewOrders } from "./pages/ViewOrders";
+import { AddProduct } from "./pages/AddProduct";
+
 function App() {
 
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/" element={<Main />}/>
         <Route path="/orders" element={<ViewOrders />} />
         <Route path="/check-out" element={<CheckOut />}/>
+        <Route path="/add-product" element={<AddProduct />} />
+
        </Routes>
        </Column>
      </Router>
