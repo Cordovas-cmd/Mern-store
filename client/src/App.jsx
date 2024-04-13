@@ -12,6 +12,12 @@ import { CheckOut } from './pages/Checkout';
 import { ViewOrders } from "./pages/ViewOrders";
 import { AddProduct } from "./pages/AddProduct";
 
+
+// need to auth email and validate test entry
+// need to rate products
+// need to add to wishlist
+
+
 function App() {
 
 
